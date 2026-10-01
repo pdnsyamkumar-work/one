@@ -3,35 +3,34 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AURA — Next-Gen Modern Cyber Store</title>
+    <title>AURA — Architectural & Organic Lifestyle Store</title>
 
     <!-- Google Fonts & Font Awesome Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
 
     <style>
         :root {
-            --bg-body: #0b0d10;
-            --bg-surface: #12151b;
-            --bg-card: #181c24;
-            --bg-card-hover: #1f242e;
-            --accent-lime: #ccff00;
-            --accent-lime-hover: #b3e600;
-            --accent-cyan: #00f0ff;
-            --accent-magenta: #ff0055;
-            --text-main: #f3f4f6;
-            --text-muted: #9ca3af;
-            --border-color: rgba(255, 255, 255, 0.08);
-            --border-active: rgba(204, 255, 0, 0.4);
-            --radius-main: 16px;
+            --bg-body: #FBF9F5;          /* Alabaster Warm White */
+            --bg-surface: #F3EFEA;       /* Linen Soft Sand */
+            --bg-card: #FFFFFF;          /* Pure White Card */
+            --accent-terracotta: #C85A32; /* Warm Terracotta */
+            --accent-terracotta-hover: #b04e2a;
+            --accent-sage: #78866B;       /* Earthy Sage Green */
+            --accent-sand: #E2D9CD;       /* Muted Sand Border */
+            --text-main: #1A1A1A;        /* Deep Charcoal / Onyx */
+            --text-muted: #6E6B65;       /* Warm Slate Muted Gray */
+            --border-color: #E6E0D7;
+            --border-active: #C85A32;
+            --radius-main: 20px;
             --radius-card: 14px;
             --radius-button: 999px;
-            --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
             --container: 1280px;
-            --glow-lime: 0 0 25px rgba(204, 255, 0, 0.25);
-            --glow-cyan: 0 0 25px rgba(0, 240, 255, 0.25);
+            --shadow-soft: 0 12px 35px rgba(26, 26, 26, 0.05);
+            --shadow-float: 0 20px 45px rgba(200, 90, 50, 0.12);
         }
 
         * {
@@ -43,15 +42,16 @@
             scroll-behavior: smooth;
         }
         body {
-            font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
             background-color: var(--bg-body);
             color: var(--text-main);
-            line-height: 1.5;
+            line-height: 1.6;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
-        h1, h2, h3, h4, .font-heading {
-            font-family: 'Syne', sans-serif;
+        h1, h2, h3, h4, .font-serif {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 600;
         }
         a {
             color: inherit;
@@ -73,7 +73,7 @@
             width: 100%;
             max-width: var(--container);
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 28px;
         }
 
         /* Custom Scrollbar */
@@ -84,11 +84,11 @@
             background: var(--bg-body);
         }
         ::-webkit-scrollbar-thumb {
-            background: #252a34;
+            background: var(--accent-sand);
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: var(--accent-lime);
+            background: var(--accent-terracotta);
         }
 
         .btn {
@@ -96,34 +96,31 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            padding: 14px 28px;
+            padding: 15px 32px;
             border-radius: var(--radius-button);
-            font-weight: 700;
+            font-weight: 600;
             font-size: 13px;
             letter-spacing: 0.8px;
             text-transform: uppercase;
             transition: var(--transition);
-            position: relative;
-            overflow: hidden;
         }
-        .btn-lime {
-            background-color: var(--accent-lime);
-            color: #000;
+        .btn-terracotta {
+            background-color: var(--accent-terracotta);
+            color: #FFFFFF;
         }
-        .btn-lime:hover {
-            background-color: var(--accent-lime-hover);
+        .btn-terracotta:hover {
+            background-color: var(--accent-terracotta-hover);
             transform: translateY(-2px);
-            box-shadow: var(--glow-lime);
+            box-shadow: var(--shadow-float);
         }
-        .btn-glass {
-            background: rgba(255, 255, 255, 0.05);
+        .btn-outline {
+            background: transparent;
             color: var(--text-main);
-            border: 1px solid var(--border-color);
-            backdrop-filter: blur(10px);
+            border: 1px solid var(--text-main);
         }
-        .btn-glass:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: var(--text-main);
+        .btn-outline:hover {
+            background: var(--text-main);
+            color: #FFFFFF;
             transform: translateY(-2px);
         }
 
@@ -133,7 +130,7 @@
             left: 0;
             right: 0;
             z-index: 900;
-            background: rgba(11, 13, 16, 0.85);
+            background: rgba(251, 249, 245, 0.88);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border-color);
         }
@@ -141,46 +138,47 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            height: 80px;
+            height: 85px;
         }
         .logo {
-            font-size: 28px;
-            font-weight: 800;
-            letter-spacing: -1px;
+            font-family: 'Playfair Display', serif;
+            font-size: 30px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }
         .logo span {
-            color: var(--accent-lime);
-            text-shadow: 0 0 10px rgba(204, 255, 0, 0.5);
+            color: var(--accent-terracotta);
         }
 
         .nav-links {
             display: flex;
-            gap: 32px;
+            gap: 36px;
             list-style: none;
         }
         .nav-links a {
             font-size: 14px;
-            font-weight: 600;
+            font-weight: 500;
             color: var(--text-muted);
             transition: var(--transition);
-            letter-spacing: 0.5px;
+            letter-spacing: 0.3px;
             position: relative;
         }
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -4px;
-            left: 0;
+            bottom: -6px;
+            left: 50%;
             width: 0%;
             height: 2px;
-            background: var(--accent-lime);
+            background: var(--accent-terracotta);
             transition: var(--transition);
+            transform: translateX(-50%);
         }
         .nav-links a:hover, .nav-links a.active {
-            color: var(--accent-lime);
+            color: var(--text-main);
         }
         .nav-links a:hover::after, .nav-links a.active::after {
             width: 100%;
@@ -189,7 +187,7 @@
         .nav-actions {
             display: flex;
             align-items: center;
-            gap: 14px;
+            gap: 16px;
         }
         .action-icon {
             width: 44px;
@@ -204,88 +202,77 @@
             position: relative;
         }
         .action-icon:hover {
-            border-color: var(--accent-lime);
-            color: var(--accent-lime);
+            border-color: var(--accent-terracotta);
+            color: var(--accent-terracotta);
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(204, 255, 0, 0.15);
+            background: #FFFFFF;
         }
         .badge {
             position: absolute;
-            top: -4px;
-            right: -4px;
-            background: var(--accent-lime);
-            color: #000;
-            font-weight: 800;
+            top: -2px;
+            right: -2px;
+            background: var(--accent-terracotta);
+            color: #FFF;
+            font-weight: 700;
             font-size: 10px;
-            width: 20px;
-            height: 20px;
+            width: 19px;
+            height: 19px;
             border-radius: 50%;
             display: grid;
             place-items: center;
-            box-shadow: 0 0 10px rgba(204, 255, 0, 0.5);
         }
 
-        /* Mobile Menu Drawer */
         .mobile-toggle { display: none; }
         .mobile-drawer {
             position: fixed;
-            top: 80px;
+            top: 85px;
             left: 0;
             right: 0;
             background: var(--bg-surface);
             border-bottom: 1px solid var(--border-color);
-            padding: 24px;
+            padding: 28px;
             display: none;
             flex-direction: column;
-            gap: 16px;
+            gap: 18px;
             z-index: 899;
-            transform: translateY(-100%);
-            transition: transform 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
-        .mobile-drawer.active {
-            display: flex;
-            transform: translateY(0);
-        }
+        .mobile-drawer.active { display: flex; }
 
         .hero {
-            padding-top: 130px;
+            padding-top: 135px;
             padding-bottom: 40px;
         }
         .hero-banner {
-            background: linear-gradient(135deg, rgba(22, 25, 30, 0.9) 0%, rgba(24, 28, 36, 0.95) 100%);
+            background: var(--bg-surface);
             border-radius: var(--radius-main);
             border: 1px solid var(--border-color);
-            padding: 60px;
+            padding: 70px 60px;
             position: relative;
             overflow: hidden;
-            display: flex;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
             align-items: center;
-            min-height: 480px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            gap: 40px;
+            box-shadow: var(--shadow-soft);
         }
         .hero-banner::before {
             content: '';
             position: absolute;
-            top: -40%;
+            bottom: -20%;
             right: -10%;
-            width: 550px;
-            height: 550px;
-            background: radial-gradient(circle, rgba(204, 255, 0, 0.12) 0%, rgba(0, 240, 255, 0.05) 50%, transparent 70%);
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(200, 90, 50, 0.08) 0%, transparent 70%);
             pointer-events: none;
-            filter: blur(40px);
-        }
-        .hero-content {
-            max-width: 620px;
-            z-index: 2;
         }
         .hero-tag {
             display: inline-flex;
             align-items: center;
             gap: 8px;
             padding: 6px 16px;
-            background: rgba(204, 255, 0, 0.08);
-            border: 1px solid var(--border-active);
-            color: var(--accent-lime);
+            background: rgba(200, 90, 50, 0.08);
+            color: var(--accent-terracotta);
             border-radius: var(--radius-button);
             font-size: 12px;
             font-weight: 700;
@@ -294,23 +281,38 @@
             letter-spacing: 1px;
         }
         .hero h1 {
-            font-size: 54px;
-            line-height: 1.05;
-            margin-bottom: 20px;
-            letter-spacing: -1.5px;
-            background: linear-gradient(180deg, #ffffff 0%, #a1a5b0 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: 56px;
+            line-height: 1.1;
+            margin-bottom: 22px;
+            color: var(--text-main);
+            letter-spacing: -1px;
+        }
+        .hero h1 i {
+            font-style: italic;
+            color: var(--accent-terracotta);
         }
         .hero p {
-            font-size: 18px;
+            font-size: 17px;
             color: var(--text-muted);
-            margin-bottom: 32px;
-            font-weight: 400;
+            margin-bottom: 36px;
+            max-width: 500px;
+        }
+        .hero-img-wrapper {
+            position: relative;
+            width: 100%;
+            height: 380px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+        }
+        .hero-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .controls-bar {
-            margin: 40px 0 30px;
+            margin: 50px 0 35px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -319,12 +321,12 @@
         }
         .filter-tags {
             display: flex;
-            gap: 10px;
+            gap: 12px;
             overflow-x: auto;
             padding-bottom: 4px;
         }
         .tag-btn {
-            padding: 10px 22px;
+            padding: 10px 24px;
             border-radius: var(--radius-button);
             background: var(--bg-surface);
             border: 1px solid var(--border-color);
@@ -335,24 +337,24 @@
             transition: var(--transition);
         }
         .tag-btn:hover, .tag-btn.active {
-            background: var(--accent-lime);
-            color: #000;
-            border-color: var(--accent-lime);
-            box-shadow: 0 0 15px rgba(204, 255, 0, 0.2);
+            background: var(--accent-terracotta);
+            color: #FFFFFF;
+            border-color: var(--accent-terracotta);
+            box-shadow: var(--shadow-float);
         }
         .search-box {
             display: flex;
             align-items: center;
-            background: var(--bg-surface);
+            background: #FFFFFF;
             border: 1px solid var(--border-color);
             border-radius: var(--radius-button);
-            padding: 0 18px;
+            padding: 0 20px;
             width: 320px;
             transition: var(--transition);
         }
         .search-box:focus-within {
-            border-color: var(--accent-lime);
-            box-shadow: 0 0 15px rgba(204, 255, 0, 0.15);
+            border-color: var(--accent-terracotta);
+            box-shadow: 0 0 15px rgba(200, 90, 50, 0.12);
         }
         .search-box input {
             background: none;
@@ -367,16 +369,16 @@
 
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 24px;
-            margin-bottom: 80px;
+            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            gap: 30px;
+            margin-bottom: 90px;
             min-height: 300px;
         }
         .product-card {
-            background: var(--bg-surface);
+            background: var(--bg-card);
             border: 1px solid var(--border-color);
-            border-radius: var(--radius-main);
-            padding: 16px;
+            border-radius: var(--radius-card);
+            padding: 18px;
             transition: var(--transition);
             display: flex;
             flex-direction: column;
@@ -384,40 +386,39 @@
             cursor: pointer;
         }
         .product-card:hover {
-            transform: translateY(-6px);
-            border-color: var(--border-active);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-            background: var(--bg-card);
+            transform: translateY(-8px);
+            border-color: var(--accent-sand);
+            box-shadow: var(--shadow-soft);
         }
         .image-container {
             width: 100%;
             aspect-ratio: 1;
-            background: #0f1217;
-            border-radius: var(--radius-card);
+            background: var(--bg-surface);
+            border-radius: 10px;
             overflow: hidden;
             position: relative;
-            margin-bottom: 16px;
+            margin-bottom: 18px;
         }
         .image-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .product-card:hover .image-container img {
-            transform: scale(1.08);
+            transform: scale(1.06);
         }
         .card-badge {
             position: absolute;
             top: 12px;
             left: 12px;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(251, 249, 245, 0.9);
             backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--accent-lime);
-            font-size: 10px;
-            font-weight: 800;
-            padding: 4px 10px;
+            border: 1px solid var(--border-color);
+            color: var(--accent-terracotta);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 12px;
             border-radius: 20px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -426,21 +427,21 @@
             position: absolute;
             top: 12px;
             right: 12px;
-            width: 36px;
-            height: 36px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
-            background: rgba(13, 15, 18, 0.6);
+            background: rgba(255, 255, 255, 0.88);
             backdrop-filter: blur(8px);
-            color: var(--text-main);
+            color: var(--text-muted);
             display: grid;
             place-items: center;
             transition: var(--transition);
             z-index: 5;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
         .like-btn:hover, .like-btn.liked {
-            color: var(--accent-magenta);
-            background: #fff;
-            box-shadow: 0 0 15px rgba(255, 0, 85, 0.4);
+            color: var(--accent-terracotta);
+            background: #FFF;
         }
 
         .product-info {
@@ -457,40 +458,40 @@
             margin-bottom: 6px;
         }
         .stars {
-            color: var(--accent-lime);
+            color: var(--accent-terracotta);
         }
         .product-category {
             font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: var(--text-muted);
+            color: var(--accent-sage);
             font-weight: 700;
             margin-bottom: 4px;
         }
         .product-title {
-            font-size: 18px;
-            font-weight: 700;
+            font-size: 19px;
+            font-weight: 600;
             margin-bottom: 12px;
-            line-height: 1.3;
+            line-height: 1.35;
         }
         .product-bottom {
             display: flex;
             align-items: center;
             justify-content: space-between;
             margin-top: auto;
-            padding-top: 12px;
+            padding-top: 14px;
             border-top: 1px solid var(--border-color);
         }
         .price {
             font-size: 20px;
-            font-weight: 800;
-            color: var(--accent-lime);
+            font-weight: 700;
+            color: var(--text-main);
         }
         .add-cart-btn {
-            width: 40px;
-            height: 40px;
+            width: 42px;
+            height: 42px;
             border-radius: 50%;
-            background: var(--bg-card);
+            background: var(--bg-surface);
             border: 1px solid var(--border-color);
             color: var(--text-main);
             display: grid;
@@ -498,11 +499,10 @@
             transition: var(--transition);
         }
         .add-cart-btn:hover {
-            background: var(--accent-lime);
-            color: #000;
-            border-color: var(--accent-lime);
+            background: var(--accent-terracotta);
+            color: #FFFFFF;
+            border-color: var(--accent-terracotta);
             transform: scale(1.05);
-            box-shadow: 0 0 15px rgba(204, 255, 0, 0.4);
         }
 
         .no-results {
@@ -517,25 +517,24 @@
         .no-results i {
             font-size: 40px;
             margin-bottom: 16px;
-            color: var(--accent-lime);
+            color: var(--accent-terracotta);
         }
 
         .promo-section {
-            background: linear-gradient(135deg, var(--bg-surface) 0%, rgba(30, 34, 41, 0.8) 100%);
+            background: var(--bg-surface);
             border: 1px solid var(--border-color);
             border-radius: var(--radius-main);
-            padding: 48px;
+            padding: 50px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 30px;
-            margin-bottom: 80px;
+            margin-bottom: 90px;
             position: relative;
-            overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            box-shadow: var(--shadow-soft);
         }
         .promo-text h2 {
-            font-size: 36px;
+            font-size: 38px;
             margin-bottom: 12px;
             letter-spacing: -0.5px;
         }
@@ -545,18 +544,18 @@
             margin-top: 24px;
         }
         .time-box {
-            background: rgba(11, 13, 16, 0.8);
+            background: #FFFFFF;
             border: 1px solid var(--border-color);
-            padding: 12px;
+            padding: 14px;
             border-radius: 12px;
-            min-width: 68px;
+            min-width: 72px;
             text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
         }
         .time-box .num {
             font-size: 24px;
-            font-weight: 800;
-            color: var(--accent-lime);
-            text-shadow: 0 0 10px rgba(204, 255, 0, 0.3);
+            font-weight: 700;
+            color: var(--accent-terracotta);
         }
         .time-box .label {
             font-size: 10px;
@@ -565,14 +564,29 @@
             font-weight: 600;
         }
 
+        .promo-input-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 16px;
+        }
+        .promo-input-group input {
+            padding: 12px 18px;
+            border-radius: var(--radius-button);
+            border: 1px solid var(--border-color);
+            outline: none;
+            font-family: inherit;
+            font-size: 14px;
+            width: 180px;
+        }
+
         .overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(8px);
+            background: rgba(26, 26, 26, 0.4);
+            backdrop-filter: blur(6px);
             z-index: 1000;
             opacity: 0;
             pointer-events: none;
@@ -587,85 +601,84 @@
             position: fixed;
             top: 0;
             right: 0;
-            width: 440px;
+            width: 450px;
             max-width: 100%;
             height: 100%;
-            background: var(--bg-surface);
+            background: #FFFFFF;
             border-left: 1px solid var(--border-color);
             z-index: 1001;
             transform: translateX(100%);
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             display: flex;
             flex-direction: column;
-            box-shadow: -10px 0 40px rgba(0,0,0,0.8);
+            box-shadow: -10px 0 40px rgba(0,0,0,0.08);
         }
         .side-drawer.active {
             transform: translateX(0);
         }
 
         .drawer-header {
-            padding: 24px;
+            padding: 26px;
             border-bottom: 1px solid var(--border-color);
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
         .drawer-header h3 {
-            font-size: 20px;
+            font-size: 22px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
         .close-btn {
-            width: 36px;
-            height: 36px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
-            background: var(--bg-card);
+            background: var(--bg-surface);
             color: var(--text-muted);
             display: grid;
             place-items: center;
             transition: var(--transition);
         }
         .close-btn:hover {
-            color: #fff;
-            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-main);
+            background: var(--border-color);
         }
 
         .drawer-body {
-            padding: 24px;
+            padding: 26px;
             overflow-y: auto;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 18px;
         }
 
         .cart-item {
             display: flex;
             gap: 16px;
-            background: var(--bg-card);
+            background: var(--bg-body);
             border: 1px solid var(--border-color);
-            padding: 12px;
+            padding: 14px;
             border-radius: var(--radius-card);
             align-items: center;
         }
         .cart-item img {
-            width: 70px;
-            height: 70px;
+            width: 75px;
+            height: 75px;
             object-fit: cover;
             border-radius: 10px;
-            background: #000;
         }
         .cart-item-details {
             flex-grow: 1;
         }
         .cart-item-title {
             font-size: 15px;
-            font-weight: 700;
+            font-weight: 600;
             margin-bottom: 4px;
         }
         .cart-item-price {
-            color: var(--accent-lime);
+            color: var(--accent-terracotta);
             font-weight: 700;
             font-size: 14px;
             margin-bottom: 8px;
@@ -673,42 +686,42 @@
         .qty-controls {
             display: flex;
             align-items: center;
-            gap: 10px;
-            background: var(--bg-surface);
+            gap: 12px;
+            background: #FFFFFF;
             border: 1px solid var(--border-color);
             border-radius: 20px;
-            padding: 2px 8px;
+            padding: 2px 10px;
             width: fit-content;
         }
         .qty-btn {
             color: var(--text-main);
             font-size: 12px;
-            padding: 2px 6px;
+            padding: 2px 4px;
         }
         .qty-btn:hover {
-            color: var(--accent-lime);
+            color: var(--accent-terracotta);
         }
 
         .drawer-footer {
-            padding: 24px;
+            padding: 26px;
             border-top: 1px solid var(--border-color);
-            background: var(--bg-body);
+            background: var(--bg-surface);
         }
         .cart-summary-row {
             display: flex;
             justify-content: space-between;
             margin-bottom: 12px;
-            font-size: 15px;
+            font-size: 14px;
             color: var(--text-muted);
         }
         .cart-summary-total {
             display: flex;
             justify-content: space-between;
             font-size: 20px;
-            font-weight: 800;
+            font-weight: 700;
             color: var(--text-main);
-            margin-bottom: 20px;
-            padding-top: 12px;
+            margin-bottom: 22px;
+            padding-top: 14px;
             border-top: 1px dashed var(--border-color);
         }
 
@@ -718,15 +731,15 @@
             left: 50%;
             transform: translate(-50%, -50%) scale(0.95);
             width: 90%;
-            max-width: 850px;
-            background: var(--bg-surface);
+            max-width: 880px;
+            background: #FFFFFF;
             border: 1px solid var(--border-color);
             border-radius: var(--radius-main);
             z-index: 1002;
             opacity: 0;
             pointer-events: none;
             transition: var(--transition);
-            box-shadow: 0 25px 60px rgba(0,0,0,0.9);
+            box-shadow: 0 30px 70px rgba(0,0,0,0.15);
             overflow: hidden;
         }
         .modal.active {
@@ -737,55 +750,84 @@
 
         .modal-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1.1fr;
         }
         .modal-image {
-            background: #0b0d10;
+            background: var(--bg-surface);
             display: grid;
             place-items: center;
             padding: 30px;
             position: relative;
         }
         .modal-image img {
-            max-height: 380px;
+            max-height: 400px;
             object-fit: contain;
             border-radius: 12px;
         }
         .modal-content {
-            padding: 40px;
+            padding: 44px;
             display: flex;
             flex-direction: column;
         }
         .modal-close {
             position: absolute;
-            top: 16px;
-            right: 16px;
+            top: 18px;
+            right: 18px;
             z-index: 10;
         }
 
-        /* Toast Container */
+        .option-selector {
+            margin-bottom: 20px;
+        }
+        .option-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            font-weight: 700;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+        .color-chips {
+            display: flex;
+            gap: 10px;
+        }
+        .chip {
+            padding: 8px 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .chip.active, .chip:hover {
+            border-color: var(--accent-terracotta);
+            color: var(--accent-terracotta);
+            background: rgba(200, 90, 50, 0.05);
+        }
+
+        /* Toast Notifications */
         .toast-container {
             position: fixed;
-            bottom: 24px;
-            right: 24px;
+            bottom: 28px;
+            right: 28px;
             z-index: 1100;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
         }
         .toast {
-            background: var(--bg-card);
-            border: 1px solid var(--accent-lime);
-            color: var(--text-main);
-            padding: 14px 20px;
-            border-radius: 12px;
+            background: var(--text-main);
+            color: #FFFFFF;
+            padding: 16px 24px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
-            gap: 12px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-            animation: slideIn 0.3s forwards;
+            gap: 14px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+            animation: slideIn 0.35s forwards;
             font-size: 14px;
-            font-weight: 600;
+            font-weight: 500;
         }
         @keyframes slideIn {
             from { transform: translateX(100%); opacity: 0; }
@@ -795,24 +837,24 @@
         footer {
             background: var(--bg-surface);
             border-top: 1px solid var(--border-color);
-            padding: 60px 0 30px;
+            padding: 70px 0 35px;
             margin-top: auto;
         }
         .footer-grid {
             display: grid;
             grid-template-columns: 2fr repeat(3, 1fr);
             gap: 40px;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
         .footer-brand p {
             color: var(--text-muted);
-            margin-top: 12px;
-            max-width: 320px;
+            margin-top: 14px;
+            max-width: 340px;
             font-size: 14px;
         }
         .footer-col h4 {
-            font-size: 15px;
-            margin-bottom: 20px;
+            font-size: 16px;
+            margin-bottom: 22px;
             color: var(--text-main);
             letter-spacing: 0.5px;
         }
@@ -820,7 +862,7 @@
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
         }
         .footer-col a {
             color: var(--text-muted);
@@ -828,10 +870,10 @@
             transition: var(--transition);
         }
         .footer-col a:hover {
-            color: var(--accent-lime);
+            color: var(--accent-terracotta);
         }
         .footer-bottom {
-            padding-top: 30px;
+            padding-top: 35px;
             border-top: 1px solid var(--border-color);
             display: flex;
             justify-content: space-between;
@@ -842,7 +884,9 @@
 
         /* Responsive Breakpoints */
         @media (max-width: 992px) {
+            .hero-banner { grid-template-columns: 1fr; padding: 45px 35px; }
             .hero h1 { font-size: 42px; }
+            .hero-img-wrapper { height: 280px; }
             .modal-grid { grid-template-columns: 1fr; }
             .modal-image { display: none; }
             .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -852,12 +896,11 @@
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .mobile-toggle { display: grid; }
-            .hero-banner { padding: 40px 24px; }
-            .hero h1 { font-size: 32px; }
+            .hero h1 { font-size: 34px; }
             .controls-bar { flex-direction: column; align-items: stretch; }
             .search-box { width: 100%; }
             .footer-grid { grid-template-columns: 1fr; }
-            .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+            .footer-bottom { flex-direction: column; gap: 14px; text-align: center; }
             .side-drawer { width: 100%; }
         }
     </style>
@@ -869,10 +912,10 @@
             <a href="#" class="logo">AURA<span>.</span></a>
             
             <ul class="nav-links">
-                <li><a href="#" class="active">Discover</a></li>
+                <li><a href="#" class="active">Collection</a></li>
                 <li><a href="#shop">Shop All</a></li>
-                <li><a href="#promo">Deals</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="#promo">Special Release</a></li>
+                <li><a href="#about">Our Story</a></li>
             </ul>
 
             <div class="nav-actions">
@@ -893,12 +936,11 @@
             </div>
         </div>
 
-        <!-- Mobile Drawer -->
         <div class="mobile-drawer" id="mobileDrawer">
-            <a href="#" class="active" onclick="toggleMenu()">Discover</a>
+            <a href="#" class="active" onclick="toggleMenu()">Collection</a>
             <a href="#shop" onclick="toggleMenu()">Shop All</a>
-            <a href="#promo" onclick="toggleMenu()">Deals</a>
-            <a href="#about" onclick="toggleMenu()">About</a>
+            <a href="#promo" onclick="toggleMenu()">Special Release</a>
+            <a href="#about" onclick="toggleMenu()">Our Story</a>
         </div>
     </header>
 
@@ -906,13 +948,16 @@
         <section class="hero container">
             <div class="hero-banner">
                 <div class="hero-content">
-                    <span class="hero-tag"><i class="fa-solid fa-bolt"></i> Cyber Edition Drop v3.0</span>
-                    <h1>Next-Gen Hardware For Digital Natives</h1>
-                    <p>Upgrade your aesthetic with engineered minimalist technology, hyper-responsive audio, and modern cyberwear accessories.</p>
+                    <span class="hero-tag"><i class="fa-solid fa-leaf"></i> Autumn / Winter Japandi Collection</span>
+                    <h1>Harmonious <i>Living</i> & Architectural Design</h1>
+                    <p>Thoughtfully curated objects, handcrafted ceramics, and sculptural lighting created to foster serenity in your daily spaces.</p>
                     <div style="display: flex; gap: 16px; flex-wrap: wrap;">
-                        <a href="#shop" class="btn btn-lime">Explore Drop <i class="fa-solid fa-arrow-right"></i></a>
-                        <a href="#promo" class="btn btn-glass">Limited Offer</a>
+                        <a href="#shop" class="btn btn-terracotta">Explore Collection <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="#about" class="btn btn-outline">Read Philosophy</a>
                     </div>
+                </div>
+                <div class="hero-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1000&q=80" alt="Japandi Aesthetic Interior Design">
                 </div>
             </div>
         </section>
@@ -920,41 +965,47 @@
         <section class="container" id="shop">
             <div class="controls-bar">
                 <div class="filter-tags">
-                    <button class="tag-btn active" onclick="filterCategory('all', this)">All Hardware</button>
-                    <button class="tag-btn" onclick="filterCategory('tech', this)">Cyberware</button>
-                    <button class="tag-btn" onclick="filterCategory('apparel', this)">Apparel</button>
-                    <button class="tag-btn" onclick="filterCategory('audio', this)">Audio</button>
+                    <button class="tag-btn active" onclick="filterCategory('all', this)">All Objects</button>
+                    <button class="tag-btn" onclick="filterCategory('ceramics', this)">Ceramics</button>
+                    <button class="tag-btn" onclick="filterCategory('lighting', this)">Lighting</button>
+                    <button class="tag-btn" onclick="filterCategory('furniture', this)">Furniture</button>
                 </div>
                 <div class="search-box">
                     <i class="fa-solid fa-search" style="color: var(--text-muted);"></i>
-                    <input type="text" id="searchInput" placeholder="Search gear (e.g., ring, board)..." onkeyup="filterProducts()">
+                    <input type="text" id="searchInput" placeholder="Search collection (e.g. lamp, vase)..." onkeyup="filterProducts()">
                 </div>
             </div>
 
             <div class="products-grid" id="productsGrid">
-                <!-- Products injected dynamically via JS -->
+                <!-- Injected via JS -->
             </div>
         </section>
 
         <section class="container" id="promo">
             <div class="promo-section">
                 <div class="promo-text">
-                    <span style="color: var(--accent-lime); font-weight: 700; text-transform: uppercase; font-size: 12px; letter-spacing: 1px;">
-                        <i class="fa-solid fa-fire"></i> Limited Collector's Edition
+                    <span style="color: var(--accent-terracotta); font-weight: 700; text-transform: uppercase; font-size: 12px; letter-spacing: 1px;">
+                        <i class="fa-solid fa-sparkles"></i> Artisan Limited Edition
                     </span>
-                    <h2>Obsidian Titanium Smartwatch</h2>
-                    <p style="color: var(--text-muted); max-width: 460px;">Machined grade-5 titanium casing, sapphire crystal face, and neural bio-sensors. Limited global drop of 500 numbered units.</p>
+                    <h2 class="font-serif">The Terracotta Sculptural Vessel</h2>
+                    <p style="color: var(--text-muted); max-width: 480px;">Hand-thrown by Kyoto artisans using rich unglazed terracotta clay. Limited edition batch release of 150 authenticated pieces.</p>
+                    
                     <div class="countdown">
-                        <div class="time-box"><div class="num" id="days">02</div><div class="label">Days</div></div>
-                        <div class="time-box"><div class="num" id="hours">14</div><div class="label">Hours</div></div>
-                        <div class="time-box"><div class="num" id="mins">38</div><div class="label">Mins</div></div>
-                        <div class="time-box"><div class="num" id="secs">45</div><div class="label">Secs</div></div>
+                        <div class="time-box"><div class="num" id="days">03</div><div class="label">Days</div></div>
+                        <div class="time-box"><div class="num" id="hours">11</div><div class="label">Hours</div></div>
+                        <div class="time-box"><div class="num" id="mins">24</div><div class="label">Mins</div></div>
+                        <div class="time-box"><div class="num" id="secs">18</div><div class="label">Secs</div></div>
                     </div>
                 </div>
                 <div>
-                    <button class="btn btn-lime" onclick="claimPromo()" style="padding: 20px 40px; font-size: 15px;">
-                        Claim Code "AURA2026" — $450
-                    </button>
+                    <div style="background: #FFF; padding: 28px; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: var(--shadow-soft);">
+                        <div style="font-size: 14px; font-weight: 700; margin-bottom: 6px;">Apply Secret Offer</div>
+                        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 14px;">Use code <strong>AURA10</strong> for 10% off your entire cart.</p>
+                        <div class="promo-input-group">
+                            <input type="text" id="couponCode" placeholder="Enter coupon...">
+                            <button class="btn btn-terracotta" style="padding: 10px 20px;" onclick="applyCoupon()">Apply</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -965,7 +1016,7 @@
     <!-- Side Cart Drawer -->
     <div class="side-drawer" id="cartDrawer">
         <div class="drawer-header">
-            <h3><i class="fa-solid fa-bag-shopping" style="color: var(--accent-lime);"></i> Shopping Cart</h3>
+            <h3><i class="fa-solid fa-bag-shopping" style="color: var(--accent-terracotta);"></i> Shopping Bag</h3>
             <button class="close-btn" onclick="closeAllDrawers()"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <div class="drawer-body" id="cartBody">
@@ -976,22 +1027,26 @@
                 <span>Subtotal</span>
                 <span id="cartSubtotal">$0.00</span>
             </div>
+            <div class="cart-summary-row" id="discountRow" style="display: none; color: var(--accent-terracotta);">
+                <span>Discount (10%)</span>
+                <span id="cartDiscount">-$0.00</span>
+            </div>
             <div class="cart-summary-row">
-                <span>Cyber Shipping</span>
-                <span style="color: var(--accent-lime);">FREE</span>
+                <span>Carbon Neutral Delivery</span>
+                <span style="color: var(--accent-sage); font-weight: 600;">COMPLIMENTARY</span>
             </div>
             <div class="cart-summary-total">
                 <span>Total</span>
-                <span id="cartTotal" style="color: var(--accent-lime);">$0.00</span>
+                <span id="cartTotal">$0.00</span>
             </div>
-            <button class="btn btn-lime" style="width: 100%;" onclick="checkout()">Proceed To Checkout <i class="fa-solid fa-arrow-right"></i></button>
+            <button class="btn btn-terracotta" style="width: 100%;" onclick="checkout()">Checkout Order <i class="fa-solid fa-arrow-right"></i></button>
         </div>
     </div>
 
     <!-- Side Wishlist Drawer -->
     <div class="side-drawer" id="wishlistDrawer">
         <div class="drawer-header">
-            <h3><i class="fa-solid fa-heart" style="color: var(--accent-magenta);"></i> Saved Hardware</h3>
+            <h3><i class="fa-solid fa-heart" style="color: var(--accent-terracotta);"></i> Saved Objects</h3>
             <button class="close-btn" onclick="closeAllDrawers()"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <div class="drawer-body" id="wishlistBody">
@@ -999,23 +1054,34 @@
         </div>
     </div>
 
+    <!-- Quick View Modal -->
     <div class="modal" id="quickViewModal">
         <button class="close-btn modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
         <div class="modal-grid">
             <div class="modal-image">
-                <img id="modalImg" src="" alt="Product Detail">
+                <img id="modalImg" src="" alt="Object Detail">
             </div>
             <div class="modal-content">
-                <span id="modalCategory" class="product-category" style="color: var(--accent-lime);">Category</span>
-                <h2 id="modalTitle" style="font-size: 28px; margin-bottom: 12px;">Product Title</h2>
+                <span id="modalCategory" class="product-category">Category</span>
+                <h2 id="modalTitle" class="font-serif" style="font-size: 30px; margin-bottom: 12px;">Object Title</h2>
                 <div class="product-rating" style="margin-bottom: 16px;">
                     <div class="stars" id="modalStars"></div>
                     <span id="modalReviews">(0 reviews)</span>
                 </div>
-                <p id="modalDesc" style="color: var(--text-muted); font-size: 14px; margin-bottom: 24px; line-height: 1.6;">Product detailed description will appear here...</p>
-                <div style="margin-top: auto;">
-                    <div style="font-size: 28px; font-weight: 800; color: var(--accent-lime); margin-bottom: 20px;" id="modalPrice">$0.00</div>
-                    <button class="btn btn-lime" style="width: 100%;" id="modalAddBtn">Add To Cart</button>
+                <p id="modalDesc" style="color: var(--text-muted); font-size: 14px; margin-bottom: 20px; line-height: 1.6;">Description details...</p>
+                
+                <div class="option-selector">
+                    <div class="option-label">Finish / Shade</div>
+                    <div class="color-chips">
+                        <span class="chip active">Natural Sand</span>
+                        <span class="chip">Terracotta Clay</span>
+                        <span class="chip">Onyx Charcoal</span>
+                    </div>
+                </div>
+
+                <div style="margin-top: auto; padding-top: 20px;">
+                    <div style="font-size: 28px; font-weight: 700; color: var(--text-main); margin-bottom: 18px;" id="modalPrice">$0.00</div>
+                    <button class="btn btn-terracotta" style="width: 100%;" id="modalAddBtn">Add To Bag</button>
                 </div>
             </div>
         </div>
@@ -1028,36 +1094,36 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="#" class="logo">AURA<span>.</span></a>
-                    <p>Next-generation lifestyle artifacts and hardware designed for utility, speed, and futuristic aesthetics.</p>
+                    <p>Dedicated to slow living, tactile organic materials, and architectural minimal decor for intentional homes.</p>
                 </div>
                 <div class="footer-col">
-                    <h4>Ecosystem</h4>
+                    <h4>Collections</h4>
                     <ul>
-                        <li><a href="#">Drop Archive</a></li>
-                        <li><a href="#">Firmware Updates</a></li>
-                        <li><a href="#">Cybernetics Lab</a></li>
+                        <li><a href="#">Kyoto Ceramics</a></li>
+                        <li><a href="#">Nordic Warm Lighting</a></li>
+                        <li><a href="#">Walnut Furniture</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Support</h4>
+                    <h4>Customer Care</h4>
                     <ul>
-                        <li><a href="#">Encrypted Dispatch</a></li>
-                        <li><a href="#">Warranty Register</a></li>
-                        <li><a href="#">Contact Desk</a></li>
+                        <li><a href="#">Artisan Shipping</a></li>
+                        <li><a href="#">Care Instructions</a></li>
+                        <li><a href="#">Sustainability Policy</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Network</h4>
+                    <h4>Studio</h4>
                     <ul>
-                        <li><a href="#">Instagram</a></li>
-                        <li><a href="#">X.com / Twitter</a></li>
-                        <li><a href="#">Discord Server</a></li>
+                        <li><a href="#">Pinterest Gallery</a></li>
+                        <li><a href="#">Instagram Journal</a></li>
+                        <li><a href="#">Architectural Digest Feature</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 AURA Hardware Systems. All rights reserved.</p>
-                <p>Designed for high-density minimalist setups.</p>
+                <p>&copy; 2026 AURA Studio. All rights reserved.</p>
+                <p>Designed with natural textures & organic minimalism.</p>
             </div>
         </div>
     </footer>
@@ -1067,77 +1133,77 @@
         const PRODUCTS = [
             {
                 id: 'p1',
-                title: 'Aura ANC Wireless Headphones',
-                category: 'audio',
-                price: 349.00,
+                title: 'Kyoto Hand-Thrown Ceramic Vase',
+                category: 'ceramics',
+                price: 185.00,
                 rating: 4.9,
-                reviews: 128,
-                image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80',
-                badge: 'Best Seller',
-                desc: 'Active noise cancellation with graphene acoustic drivers, custom EQ tuning, and ultra-comfortable memory foam ear cushions.'
+                reviews: 84,
+                image: 'https://images.unsplash.com/photo-1612196808214-b7e239e5f6b7?auto=format&fit=crop&w=800&q=80',
+                badge: 'Artisan Pick',
+                desc: 'Handcrafted stoneware clay vessel with a textured matte sand glaze finish. Perfect as a standalone centerpiece or dried floral holder.'
             },
             {
                 id: 'p2',
-                title: 'Chronos Titanium Smart Ring',
-                category: 'tech',
-                price: 199.00,
+                title: 'Wabi Sabi Sculptural Pendant Light',
+                category: 'lighting',
+                price: 290.00,
                 rating: 4.8,
-                reviews: 94,
-                image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=800&q=80',
-                badge: 'Cyberware',
-                desc: 'Continuous biometrics, sleep stage tracking, and contactless gesture controls housed in ultra-light titanium.'
+                reviews: 42,
+                image: 'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=800&q=80',
+                badge: 'Best Seller',
+                desc: 'Organic molded paper pulp shade producing warm ambient illumination for dining tables or modern living spaces.'
             },
             {
                 id: 'p3',
-                title: 'CyberDeck Mechanical Keyboard',
-                category: 'tech',
-                price: 159.00,
-                rating: 4.7,
-                reviews: 210,
-                image: 'https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=800&q=80',
-                badge: 'Hot Drop',
-                desc: 'Low-profile mechanical switches, hot-swappable PCB, wireless dual-mode Bluetooth 5.2, and customizable RGB backlight.'
+                title: 'Solid Walnut Minimalist Dining Chair',
+                category: 'furniture',
+                price: 420.00,
+                rating: 5.0,
+                reviews: 29,
+                image: 'https://images.unsplash.com/photo-1580481072645-022f9a6d83d0?auto=format&fit=crop&w=800&q=80',
+                badge: 'Crafted',
+                desc: 'Sustainably sourced American walnut with hand-rubbed organic oil finish and ergonomic curved back support.'
             },
             {
                 id: 'p4',
-                title: 'Modular Technical Jacket',
-                category: 'apparel',
-                price: 280.00,
-                rating: 4.9,
-                reviews: 67,
-                image: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=800&q=80',
-                badge: 'Weatherproof',
-                desc: '3-layer waterproof Gore-Tex weave, magnetic modular utility pockets, and reinforced tactical seams.'
+                title: 'Terracotta Fluted Botanical Planter',
+                category: 'ceramics',
+                price: 115.00,
+                rating: 4.7,
+                reviews: 96,
+                image: 'https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=800&q=80',
+                badge: 'New Arrival',
+                desc: 'Unglazed terracotta planter designed with natural drainage grooves to keep indoor greenery thriving in style.'
             },
             {
                 id: 'p5',
-                title: 'Aura Studio Reference Speakers',
-                category: 'audio',
-                price: 499.00,
-                rating: 5.0,
-                reviews: 42,
-                image: 'https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=800&q=80',
-                badge: 'Audiophile',
-                desc: 'Acoustically tuned aluminum enclosure with high-density Kevlar woofers for zero-distortion studio audio.'
+                title: 'Architectural Brass & Linen Table Lamp',
+                category: 'lighting',
+                price: 240.00,
+                rating: 4.9,
+                reviews: 63,
+                image: 'https://images.unsplash.com/photo-1534349762230-e0cadf78f5da?auto=format&fit=crop&w=800&q=80',
+                badge: 'Featured',
+                desc: 'Brushed brass tripod base paired with a woven natural linen lampshade for serene bedroom or study lighting.'
             },
             {
                 id: 'p6',
-                title: 'Tactical Cyber Backpack',
-                category: 'apparel',
-                price: 145.00,
-                rating: 4.6,
-                reviews: 83,
-                image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80',
-                badge: 'Utility',
-                desc: 'Water-resistant carbon grid outer shell with internal TSA laptop compartment and integrated USB-C power passthrough.'
+                title: 'Japandi Low Curved Coffee Table',
+                category: 'furniture',
+                price: 580.00,
+                rating: 4.9,
+                reviews: 38,
+                image: 'https://images.unsplash.com/photo-1532323544230-7191fd51bc1b?auto=format&fit=crop&w=800&q=80',
+                badge: 'Limited',
+                desc: 'Smooth curved white oak coffee table celebrating organic fluid silhouetted lines and soft minimalist geometry.'
             }
         ];
 
         let cart = [];
         let wishlist = [];
         let activeCategory = 'all';
+        let discountRate = 0;
 
-        // Render Products
         function renderProducts() {
             const grid = document.getElementById('productsGrid');
             const searchVal = document.getElementById('searchInput').value.toLowerCase();
@@ -1151,8 +1217,8 @@
             if (filtered.length === 0) {
                 grid.innerHTML = `
                     <div class="no-results">
-                        <i class="fa-solid fa-radar"></i>
-                        <h3>No Artifacts Discovered</h3>
+                        <i class="fa-solid fa-compass"></i>
+                        <h3>No Objects Found</h3>
                         <p>Try searching for a different keyword or category filter.</p>
                     </div>
                 `;
@@ -1172,14 +1238,14 @@
                         </div>
                         <div class="product-info">
                             <span class="product-category">${p.category}</span>
-                            <h3 class="product-title">${p.title}</h3>
+                            <h3 class="product-title font-serif">${p.title}</h3>
                             <div class="product-rating">
                                 <div class="stars">${'<i class="fa-solid fa-star"></i>'.repeat(Math.floor(p.rating))}</div>
                                 <span>${p.rating} (${p.reviews})</span>
                             </div>
                             <div class="product-bottom">
                                 <span class="price">$${p.price.toFixed(2)}</span>
-                                <button class="add-cart-btn" onclick="event.stopPropagation(); addToCart('${p.id}')" aria-label="Add to cart">
+                                <button class="add-cart-btn" onclick="event.stopPropagation(); addToCart('${p.id}')" aria-label="Add to bag">
                                     <i class="fa-solid fa-plus"></i>
                                 </button>
                             </div>
@@ -1189,7 +1255,6 @@
             }).join('');
         }
 
-        // Cart Actions
         function addToCart(id) {
             const product = PRODUCTS.find(p => p.id === id);
             const existing = cart.find(item => item.id === id);
@@ -1201,7 +1266,7 @@
             }
 
             updateCartUI();
-            showToast(`Added <strong>${product.title}</strong> to cart!`);
+            showToast(`Added <strong>${product.title}</strong> to shopping bag.`);
         }
 
         function updateCartQty(id, delta) {
@@ -1225,12 +1290,13 @@
             if (cart.length === 0) {
                 cartBody.innerHTML = `
                     <div style="text-align: center; color: var(--text-muted); margin-top: 60px;">
-                        <i class="fa-solid fa-basket-shopping" style="font-size: 48px; margin-bottom: 16px; opacity: 0.5;"></i>
-                        <p>Your shopping cart is empty.</p>
+                        <i class="fa-solid fa-bag-shopping" style="font-size: 48px; margin-bottom: 16px; opacity: 0.3;"></i>
+                        <p>Your shopping bag is empty.</p>
                     </div>
                 `;
                 document.getElementById('cartSubtotal').innerText = '$0.00';
                 document.getElementById('cartTotal').innerText = '$0.00';
+                document.getElementById('discountRow').style.display = 'none';
                 return;
             }
 
@@ -1254,21 +1320,29 @@
                 `;
             }).join('');
 
+            const discountAmount = subtotal * discountRate;
+            const finalTotal = subtotal - discountAmount;
+
             document.getElementById('cartSubtotal').innerText = `$${subtotal.toFixed(2)}`;
-            document.getElementById('cartTotal').innerText = `$${subtotal.toFixed(2)}`;
+            if (discountRate > 0) {
+                document.getElementById('discountRow').style.display = 'flex';
+                document.getElementById('cartDiscount').innerText = `-$${discountAmount.toFixed(2)}`;
+            } else {
+                document.getElementById('discountRow').style.display = 'none';
+            }
+            document.getElementById('cartTotal').innerText = `$${finalTotal.toFixed(2)}`;
         }
 
-        // Wishlist Actions
         function toggleWishlist(id) {
             const product = PRODUCTS.find(p => p.id === id);
             const idx = wishlist.indexOf(id);
 
             if (idx > -1) {
                 wishlist.splice(idx, 1);
-                showToast(`Removed from wishlist`);
+                showToast(`Removed from saved objects.`);
             } else {
                 wishlist.push(id);
-                showToast(`Added <strong>${product.title}</strong> to wishlist!`);
+                showToast(`Saved <strong>${product.title}</strong> to wishlist.`);
             }
 
             document.getElementById('wishlistBadge').innerText = wishlist.length;
@@ -1281,8 +1355,8 @@
             if (wishlist.length === 0) {
                 body.innerHTML = `
                     <div style="text-align: center; color: var(--text-muted); margin-top: 60px;">
-                        <i class="fa-regular fa-heart" style="font-size: 48px; margin-bottom: 16px; opacity: 0.5;"></i>
-                        <p>No saved items yet.</p>
+                        <i class="fa-regular fa-heart" style="font-size: 48px; margin-bottom: 16px; opacity: 0.3;"></i>
+                        <p>No saved objects yet.</p>
                     </div>
                 `;
                 return;
@@ -1295,15 +1369,14 @@
                     <div class="cart-item-details">
                         <div class="cart-item-title">${p.title}</div>
                         <div class="cart-item-price">$${p.price.toFixed(2)}</div>
-                        <button class="btn btn-lime" style="padding: 6px 14px; font-size: 11px; margin-top: 6px;" onclick="addToCart('${p.id}')">
-                            Move To Cart
+                        <button class="btn btn-terracotta" style="padding: 6px 14px; font-size: 11px; margin-top: 6px;" onclick="addToCart('${p.id}')">
+                            Move To Bag
                         </button>
                     </div>
                 </div>
             `).join('');
         }
 
-        // Quick View Modal
         function openQuickView(id) {
             const p = PRODUCTS.find(item => item.id === id);
             if (!p) return;
@@ -1332,7 +1405,6 @@
             document.getElementById('overlay').classList.remove('active');
         }
 
-        // Drawers
         function openCart() {
             closeAllDrawers();
             document.getElementById('overlay').classList.add('active');
@@ -1353,7 +1425,6 @@
             document.getElementById('quickViewModal').classList.remove('active');
         }
 
-        // Filters & Search
         function filterCategory(cat, btn) {
             activeCategory = cat;
             document.querySelectorAll('.tag-btn').forEach(b => b.classList.remove('active'));
@@ -1371,45 +1442,50 @@
             input.focus();
         }
 
-        // Mobile Nav
         function toggleMenu() {
             document.getElementById('mobileDrawer').classList.toggle('active');
         }
         document.getElementById('menuToggle').addEventListener('click', toggleMenu);
 
-        // Toast Feedback
         function showToast(msg) {
             const container = document.getElementById('toastContainer');
             const toast = document.createElement('div');
             toast.className = 'toast';
-            toast.innerHTML = `<i class="fa-solid fa-circle-check" style="color: var(--accent-lime);"></i> <span>${msg}</span>`;
+            toast.innerHTML = `<i class="fa-solid fa-circle-check" style="color: var(--accent-terracotta);"></i> <span>${msg}</span>`;
             
             container.appendChild(toast);
             setTimeout(() => {
                 toast.style.opacity = '0';
                 toast.style.transform = 'translateX(100%)';
-                setTimeout(() => toast.remove(), 300);
-            }, 3000);
+                setTimeout(() => toast.remove(), 350);
+            }, 3200);
         }
 
-        function claimPromo() {
-            showToast('Discount code <strong>AURA2026</strong> copied to clipboard!');
+        function applyCoupon() {
+            const code = document.getElementById('couponCode').value.trim().toUpperCase();
+            if (code === 'AURA10') {
+                discountRate = 0.10;
+                showToast('Coupon code <strong>AURA10</strong> applied (10% OFF)!');
+                updateCartUI();
+            } else {
+                showToast('Invalid coupon code. Try <strong>AURA10</strong>.');
+            }
         }
 
         function checkout() {
             if (cart.length === 0) {
-                showToast('Add items to cart before checkout.');
+                showToast('Please add items to your bag first.');
                 return;
             }
-            showToast('Order received! Initiating cyber dispatch.');
+            showToast('Order confirmed! Processing carbon-neutral shipment.');
             cart = [];
+            discountRate = 0;
             updateCartUI();
             closeAllDrawers();
         }
 
-        // Countdown Timer Logic
         function startTimer() {
-            let totalSeconds = 2 * 86400 + 14 * 3600 + 38 * 60 + 45;
+            let totalSeconds = 3 * 86400 + 11 * 3600 + 24 * 60 + 18;
             setInterval(() => {
                 if (totalSeconds <= 0) return;
                 totalSeconds--;
@@ -1426,11 +1502,9 @@
             }, 1000);
         }
 
-        // Initialize App
         window.onload = function() {
             renderProducts();
             startTimer();
         };
     </script>
 </body>
-</html>
