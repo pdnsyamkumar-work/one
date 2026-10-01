@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AURA — Modern Minimalist Store</title>
+    <title>JOSA — Modern Minimalist Store</title>
 
     <!-- Google Fonts & Font Awesome Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -933,7 +933,7 @@
 
     <header>
         <div class="container nav-inner">
-            <a href="#" class="logo">AURA<span>.</span></a>
+            <a href="#" class="logo">JOSA<span>.</span></a>
             
             <ul class="nav-links">
                 <li><a href="#" class="active">Collection</a></li>
@@ -1024,7 +1024,7 @@
                 <div>
                     <div style="background: #FFF; padding: 28px; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: var(--shadow-soft);">
                         <div style="font-size: 14px; font-weight: 700; margin-bottom: 6px;">Apply Secret Offer</div>
-                        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 14px;">Use code <strong>AURA10</strong> for 10% off your entire cart.</p>
+                        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 14px;">Use code <strong>JOSA10</strong> for 10% off your entire cart.</p>
                         <div class="promo-input-group">
                             <input type="text" id="couponCode" placeholder="Enter coupon...">
                             <button class="btn btn-skyblue" style="padding: 10px 20px;" onclick="applyCoupon()">Apply</button>
@@ -1117,7 +1117,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="#" class="logo">AURA<span>.</span></a>
+                    <a href="#" class="logo">JOSA<span>.</span></a>
                     <p>Dedicated to slow living, vibrant tactile materials, and modern minimal decor for contemporary spaces.</p>
                 </div>
                 <div class="footer-col">
@@ -1146,7 +1146,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 AURA Studio. All rights reserved.</p>
+                <p>&copy; 2026 JOSA Studio. All rights reserved.</p>
                 <p>Designed with vibrant mustard & sky blue architectural tones.</p>
             </div>
         </div>
@@ -1487,12 +1487,12 @@
 
         function applyCoupon() {
             const code = document.getElementById('couponCode').value.trim().toUpperCase();
-            if (code === 'AURA10') {
+            if (code === 'JOSA10' || code === 'AURA10') {
                 discountRate = 0.10;
-                showToast('Coupon code <strong>AURA10</strong> applied (10% OFF)!');
+                showToast(`Coupon code <strong>${code}</strong> applied (10% OFF)!`);
                 updateCartUI();
             } else {
-                showToast('Invalid coupon code. Try <strong>AURA10</strong>.');
+                showToast('Invalid coupon code. Try <strong>JOSA10</strong>.');
             }
         }
 
