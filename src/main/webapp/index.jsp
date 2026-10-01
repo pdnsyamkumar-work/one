@@ -168,11 +168,17 @@
             letter-spacing: -0.5px;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 1px;
             color: var(--text-main);
         }
-        .logo span {
+        .logo .logo-jo {
             color: var(--accent-mustard);
+        }
+        .logo .logo-sa {
+            color: var(--accent-skyblue);
+        }
+        .logo .logo-dot {
+            color: var(--text-main);
         }
 
         .nav-links {
@@ -933,7 +939,7 @@
 
     <header>
         <div class="container nav-inner">
-            <a href="#" class="logo">JOSA<span>.</span></a>
+            <a href="#" class="logo"><span class="logo-jo">JO</span><span class="logo-sa">SA</span><span class="logo-dot">.</span></a>
             
             <ul class="nav-links">
                 <li><a href="#" class="active">Collection</a></li>
@@ -1117,7 +1123,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="#" class="logo">JOSA<span>.</span></a>
+                    <a href="#" class="logo"><span class="logo-jo">JO</span><span class="logo-sa">SA</span><span class="logo-dot">.</span></a>
                     <p>Dedicated to slow living, vibrant tactile materials, and modern minimal decor for contemporary spaces.</p>
                 </div>
                 <div class="footer-col">
