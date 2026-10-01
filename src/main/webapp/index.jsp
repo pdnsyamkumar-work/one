@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AURA — Architectural & Organic Lifestyle Store</title>
+    <title>AURA — Modern Minimalist Store</title>
 
     <!-- Google Fonts & Font Awesome Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,24 +13,36 @@
 
     <style>
         :root {
-            --bg-body: #FBF9F5;          /* Alabaster Warm White */
-            --bg-surface: #F3EFEA;       /* Linen Soft Sand */
+            --bg-body: #F4F8FA;          /* Soft Sky White */
+            --bg-surface: #EBF3F8;       /* Very Light Sky Tint */
             --bg-card: #FFFFFF;          /* Pure White Card */
-            --accent-terracotta: #C85A32; /* Warm Terracotta */
-            --accent-terracotta-hover: #b04e2a;
-            --accent-sage: #78866B;       /* Earthy Sage Green */
-            --accent-sand: #E2D9CD;       /* Muted Sand Border */
-            --text-main: #1A1A1A;        /* Deep Charcoal / Onyx */
-            --text-muted: #6E6B65;       /* Warm Slate Muted Gray */
-            --border-color: #E6E0D7;
-            --border-active: #C85A32;
-            --radius-main: 20px;
-            --radius-card: 14px;
+            
+            /* Mustard Yellow Spectrum */
+            --accent-mustard: #D99B00;    /* Rich Deep Mustard */
+            --accent-mustard-hover: #B88300;
+            --accent-mustard-soft: #FFF5D6;
+            
+            /* Sky Blue Spectrum */
+            --accent-skyblue: #0284C7;    /* Vibrant Sky Blue */
+            --accent-skyblue-hover: #0369A1;
+            --accent-skyblue-light: #E0F2FE;
+            --accent-skyblue-border: #BAE6FD;
+
+            --text-main: #0F172A;        /* Slate Onyx */
+            --text-muted: #475569;       /* Muted Slate Gray */
+            --border-color: #E2E8F0;
+            --border-active: #0284C7;
+            
+            --radius-main: 24px;
+            --radius-card: 16px;
             --radius-button: 999px;
             --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
             --container: 1280px;
-            --shadow-soft: 0 12px 35px rgba(26, 26, 26, 0.05);
-            --shadow-float: 0 20px 45px rgba(200, 90, 50, 0.12);
+            --shadow-soft: 0 12px 35px rgba(2, 132, 199, 0.06);
+            --shadow-float: 0 16px 36px rgba(217, 155, 0, 0.22);
+            
+            --gradient-accent: linear-gradient(135deg, #D99B00 0%, #0284C7 100%);
+            --gradient-subtle: linear-gradient(135deg, rgba(217, 155, 0, 0.12) 0%, rgba(2, 132, 199, 0.12) 100%);
         }
 
         * {
@@ -84,11 +96,11 @@
             background: var(--bg-body);
         }
         ::-webkit-scrollbar-thumb {
-            background: var(--accent-sand);
+            background: var(--accent-skyblue-border);
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: var(--accent-terracotta);
+            background: var(--accent-mustard);
         }
 
         .btn {
@@ -98,25 +110,34 @@
             gap: 10px;
             padding: 15px 32px;
             border-radius: var(--radius-button);
-            font-weight: 600;
+            font-weight: 700;
             font-size: 13px;
             letter-spacing: 0.8px;
             text-transform: uppercase;
             transition: var(--transition);
         }
-        .btn-terracotta {
-            background-color: var(--accent-terracotta);
+        .btn-mustard {
+            background-color: var(--accent-mustard);
             color: #FFFFFF;
         }
-        .btn-terracotta:hover {
-            background-color: var(--accent-terracotta-hover);
+        .btn-mustard:hover {
+            background-color: var(--accent-mustard-hover);
             transform: translateY(-2px);
             box-shadow: var(--shadow-float);
+        }
+        .btn-skyblue {
+            background-color: var(--accent-skyblue);
+            color: #FFFFFF;
+        }
+        .btn-skyblue:hover {
+            background-color: var(--accent-skyblue-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 16px 36px rgba(2, 132, 199, 0.25);
         }
         .btn-outline {
             background: transparent;
             color: var(--text-main);
-            border: 1px solid var(--text-main);
+            border: 1.5px solid var(--text-main);
         }
         .btn-outline:hover {
             background: var(--text-main);
@@ -130,7 +151,7 @@
             left: 0;
             right: 0;
             z-index: 900;
-            background: rgba(251, 249, 245, 0.88);
+            background: rgba(244, 248, 250, 0.85);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border-color);
         }
@@ -148,9 +169,10 @@
             display: flex;
             align-items: center;
             gap: 6px;
+            color: var(--text-main);
         }
         .logo span {
-            color: var(--accent-terracotta);
+            color: var(--accent-mustard);
         }
 
         .nav-links {
@@ -160,7 +182,7 @@
         }
         .nav-links a {
             font-size: 14px;
-            font-weight: 500;
+            font-weight: 600;
             color: var(--text-muted);
             transition: var(--transition);
             letter-spacing: 0.3px;
@@ -173,7 +195,7 @@
             left: 50%;
             width: 0%;
             height: 2px;
-            background: var(--accent-terracotta);
+            background: var(--accent-skyblue);
             transition: var(--transition);
             transform: translateX(-50%);
         }
@@ -193,7 +215,7 @@
             width: 44px;
             height: 44px;
             border-radius: 50%;
-            background: var(--bg-surface);
+            background: var(--bg-card);
             border: 1px solid var(--border-color);
             color: var(--text-main);
             display: grid;
@@ -202,16 +224,16 @@
             position: relative;
         }
         .action-icon:hover {
-            border-color: var(--accent-terracotta);
-            color: var(--accent-terracotta);
+            border-color: var(--accent-skyblue);
+            color: var(--accent-skyblue);
             transform: translateY(-2px);
-            background: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.15);
         }
         .badge {
             position: absolute;
             top: -2px;
             right: -2px;
-            background: var(--accent-terracotta);
+            background: var(--accent-mustard);
             color: #FFF;
             font-weight: 700;
             font-size: 10px;
@@ -228,7 +250,7 @@
             top: 85px;
             left: 0;
             right: 0;
-            background: var(--bg-surface);
+            background: var(--bg-card);
             border-bottom: 1px solid var(--border-color);
             padding: 28px;
             display: none;
@@ -246,7 +268,7 @@
         .hero-banner {
             background: var(--bg-surface);
             border-radius: var(--radius-main);
-            border: 1px solid var(--border-color);
+            border: 1px solid var(--accent-skyblue-border);
             padding: 70px 60px;
             position: relative;
             overflow: hidden;
@@ -263,16 +285,17 @@
             right: -10%;
             width: 500px;
             height: 500px;
-            background: radial-gradient(circle, rgba(200, 90, 50, 0.08) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.25) 0%, rgba(229, 169, 59, 0.15) 50%, transparent 70%);
             pointer-events: none;
         }
         .hero-tag {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 6px 16px;
-            background: rgba(200, 90, 50, 0.08);
-            color: var(--accent-terracotta);
+            padding: 8px 18px;
+            background: var(--accent-mustard-soft);
+            color: var(--accent-mustard-hover);
+            border: 1px solid rgba(217, 155, 0, 0.3);
             border-radius: var(--radius-button);
             font-size: 12px;
             font-weight: 700;
@@ -289,7 +312,7 @@
         }
         .hero h1 i {
             font-style: italic;
-            color: var(--accent-terracotta);
+            color: var(--accent-skyblue);
         }
         .hero p {
             font-size: 17px;
@@ -301,9 +324,10 @@
             position: relative;
             width: 100%;
             height: 380px;
-            border-radius: 16px;
+            border-radius: 20px;
             overflow: hidden;
             box-shadow: var(--shadow-soft);
+            border: 2px solid #FFFFFF;
         }
         .hero-img-wrapper img {
             width: 100%;
@@ -328,7 +352,7 @@
         .tag-btn {
             padding: 10px 24px;
             border-radius: var(--radius-button);
-            background: var(--bg-surface);
+            background: var(--bg-card);
             border: 1px solid var(--border-color);
             color: var(--text-muted);
             font-size: 13px;
@@ -337,10 +361,10 @@
             transition: var(--transition);
         }
         .tag-btn:hover, .tag-btn.active {
-            background: var(--accent-terracotta);
+            background: var(--accent-skyblue);
             color: #FFFFFF;
-            border-color: var(--accent-terracotta);
-            box-shadow: var(--shadow-float);
+            border-color: var(--accent-skyblue);
+            box-shadow: 0 8px 20px rgba(2, 132, 199, 0.2);
         }
         .search-box {
             display: flex;
@@ -353,8 +377,8 @@
             transition: var(--transition);
         }
         .search-box:focus-within {
-            border-color: var(--accent-terracotta);
-            box-shadow: 0 0 15px rgba(200, 90, 50, 0.12);
+            border-color: var(--accent-mustard);
+            box-shadow: 0 0 15px rgba(217, 155, 0, 0.18);
         }
         .search-box input {
             background: none;
@@ -387,14 +411,14 @@
         }
         .product-card:hover {
             transform: translateY(-8px);
-            border-color: var(--accent-sand);
-            box-shadow: var(--shadow-soft);
+            border-color: var(--accent-skyblue-border);
+            box-shadow: 0 20px 40px rgba(2, 132, 199, 0.08);
         }
         .image-container {
             width: 100%;
             aspect-ratio: 1;
             background: var(--bg-surface);
-            border-radius: 10px;
+            border-radius: 12px;
             overflow: hidden;
             position: relative;
             margin-bottom: 18px;
@@ -412,10 +436,10 @@
             position: absolute;
             top: 12px;
             left: 12px;
-            background: rgba(251, 249, 245, 0.9);
+            background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(8px);
-            border: 1px solid var(--border-color);
-            color: var(--accent-terracotta);
+            border: 1px solid var(--accent-mustard-soft);
+            color: var(--accent-mustard-hover);
             font-size: 11px;
             font-weight: 700;
             padding: 4px 12px;
@@ -430,7 +454,7 @@
             width: 38px;
             height: 38px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.88);
+            background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(8px);
             color: var(--text-muted);
             display: grid;
@@ -440,7 +464,7 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
         .like-btn:hover, .like-btn.liked {
-            color: var(--accent-terracotta);
+            color: #E11D48;
             background: #FFF;
         }
 
@@ -458,13 +482,13 @@
             margin-bottom: 6px;
         }
         .stars {
-            color: var(--accent-terracotta);
+            color: var(--accent-mustard);
         }
         .product-category {
             font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: var(--accent-sage);
+            color: var(--accent-skyblue);
             font-weight: 700;
             margin-bottom: 4px;
         }
@@ -491,18 +515,18 @@
             width: 42px;
             height: 42px;
             border-radius: 50%;
-            background: var(--bg-surface);
-            border: 1px solid var(--border-color);
-            color: var(--text-main);
+            background: var(--accent-mustard-soft);
+            border: 1px solid rgba(217, 155, 0, 0.2);
+            color: var(--accent-mustard-hover);
             display: grid;
             place-items: center;
             transition: var(--transition);
         }
         .add-cart-btn:hover {
-            background: var(--accent-terracotta);
+            background: var(--accent-mustard);
             color: #FFFFFF;
-            border-color: var(--accent-terracotta);
-            transform: scale(1.05);
+            border-color: var(--accent-mustard);
+            transform: scale(1.08);
         }
 
         .no-results {
@@ -510,19 +534,19 @@
             text-align: center;
             padding: 80px 20px;
             background: var(--bg-surface);
-            border: 1px dashed var(--border-color);
+            border: 1px dashed var(--accent-skyblue-border);
             border-radius: var(--radius-main);
             color: var(--text-muted);
         }
         .no-results i {
             font-size: 40px;
             margin-bottom: 16px;
-            color: var(--accent-terracotta);
+            color: var(--accent-skyblue);
         }
 
         .promo-section {
-            background: var(--bg-surface);
-            border: 1px solid var(--border-color);
+            background: linear-gradient(135deg, #E0F2FE 0%, #FFF5D6 100%);
+            border: 1px solid var(--accent-skyblue-border);
             border-radius: var(--radius-main);
             padding: 50px;
             display: flex;
@@ -547,7 +571,7 @@
             background: #FFFFFF;
             border: 1px solid var(--border-color);
             padding: 14px;
-            border-radius: 12px;
+            border-radius: 14px;
             min-width: 72px;
             text-align: center;
             box-shadow: 0 4px 15px rgba(0,0,0,0.03);
@@ -555,7 +579,7 @@
         .time-box .num {
             font-size: 24px;
             font-weight: 700;
-            color: var(--accent-terracotta);
+            color: var(--accent-skyblue);
         }
         .time-box .label {
             font-size: 10px;
@@ -585,7 +609,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(26, 26, 26, 0.4);
+            background: rgba(15, 23, 42, 0.45);
             backdrop-filter: blur(6px);
             z-index: 1000;
             opacity: 0;
@@ -678,7 +702,7 @@
             margin-bottom: 4px;
         }
         .cart-item-price {
-            color: var(--accent-terracotta);
+            color: var(--accent-mustard);
             font-weight: 700;
             font-size: 14px;
             margin-bottom: 8px;
@@ -699,7 +723,7 @@
             padding: 2px 4px;
         }
         .qty-btn:hover {
-            color: var(--accent-terracotta);
+            color: var(--accent-skyblue);
         }
 
         .drawer-footer {
@@ -801,9 +825,9 @@
             transition: var(--transition);
         }
         .chip.active, .chip:hover {
-            border-color: var(--accent-terracotta);
-            color: var(--accent-terracotta);
-            background: rgba(200, 90, 50, 0.05);
+            border-color: var(--accent-skyblue);
+            color: var(--accent-skyblue);
+            background: var(--accent-skyblue-light);
         }
 
         /* Toast Notifications */
@@ -870,7 +894,7 @@
             transition: var(--transition);
         }
         .footer-col a:hover {
-            color: var(--accent-terracotta);
+            color: var(--accent-skyblue);
         }
         .footer-bottom {
             padding-top: 35px;
@@ -948,16 +972,16 @@
         <section class="hero container">
             <div class="hero-banner">
                 <div class="hero-content">
-                    <span class="hero-tag"><i class="fa-solid fa-leaf"></i> Autumn / Winter Japandi Collection</span>
-                    <h1>Harmonious <i>Living</i> & Architectural Design</h1>
-                    <p>Thoughtfully curated objects, handcrafted ceramics, and sculptural lighting created to foster serenity in your daily spaces.</p>
+                    <span class="hero-tag"><i class="fa-solid fa-sparkles"></i> Autumn / Winter Modern Collection</span>
+                    <h1>Vibrant <i>Living</i> & Minimalist Craft</h1>
+                    <p>Thoughtfully curated objects, handcrafted ceramics, and sculptural lighting crafted with rich mustard warm tones and sky blue reflections.</p>
                     <div style="display: flex; gap: 16px; flex-wrap: wrap;">
-                        <a href="#shop" class="btn btn-terracotta">Explore Collection <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="#shop" class="btn btn-mustard">Explore Collection <i class="fa-solid fa-arrow-right"></i></a>
                         <a href="#about" class="btn btn-outline">Read Philosophy</a>
                     </div>
                 </div>
                 <div class="hero-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1000&q=80" alt="Japandi Aesthetic Interior Design">
+                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1000&q=80" alt="Modern Minimalist Interior Design">
                 </div>
             </div>
         </section>
@@ -984,11 +1008,11 @@
         <section class="container" id="promo">
             <div class="promo-section">
                 <div class="promo-text">
-                    <span style="color: var(--accent-terracotta); font-weight: 700; text-transform: uppercase; font-size: 12px; letter-spacing: 1px;">
-                        <i class="fa-solid fa-sparkles"></i> Artisan Limited Edition
+                    <span style="color: var(--accent-mustard); font-weight: 700; text-transform: uppercase; font-size: 12px; letter-spacing: 1px;">
+                        <i class="fa-solid fa-star"></i> Artisan Limited Edition
                     </span>
-                    <h2 class="font-serif">The Terracotta Sculptural Vessel</h2>
-                    <p style="color: var(--text-muted); max-width: 480px;">Hand-thrown by Kyoto artisans using rich unglazed terracotta clay. Limited edition batch release of 150 authenticated pieces.</p>
+                    <h2 class="font-serif">The Ochre Sculptural Vessel</h2>
+                    <p style="color: var(--text-muted); max-width: 480px;">Hand-thrown by Kyoto artisans using rich unglazed ochre clay. Limited edition batch release of 150 authenticated pieces.</p>
                     
                     <div class="countdown">
                         <div class="time-box"><div class="num" id="days">03</div><div class="label">Days</div></div>
@@ -1003,7 +1027,7 @@
                         <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 14px;">Use code <strong>AURA10</strong> for 10% off your entire cart.</p>
                         <div class="promo-input-group">
                             <input type="text" id="couponCode" placeholder="Enter coupon...">
-                            <button class="btn btn-terracotta" style="padding: 10px 20px;" onclick="applyCoupon()">Apply</button>
+                            <button class="btn btn-skyblue" style="padding: 10px 20px;" onclick="applyCoupon()">Apply</button>
                         </div>
                     </div>
                 </div>
@@ -1016,7 +1040,7 @@
     <!-- Side Cart Drawer -->
     <div class="side-drawer" id="cartDrawer">
         <div class="drawer-header">
-            <h3><i class="fa-solid fa-bag-shopping" style="color: var(--accent-terracotta);"></i> Shopping Bag</h3>
+            <h3><i class="fa-solid fa-bag-shopping" style="color: var(--accent-skyblue);"></i> Shopping Bag</h3>
             <button class="close-btn" onclick="closeAllDrawers()"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <div class="drawer-body" id="cartBody">
@@ -1027,26 +1051,26 @@
                 <span>Subtotal</span>
                 <span id="cartSubtotal">$0.00</span>
             </div>
-            <div class="cart-summary-row" id="discountRow" style="display: none; color: var(--accent-terracotta);">
+            <div class="cart-summary-row" id="discountRow" style="display: none; color: var(--accent-mustard);">
                 <span>Discount (10%)</span>
                 <span id="cartDiscount">-$0.00</span>
             </div>
             <div class="cart-summary-row">
                 <span>Carbon Neutral Delivery</span>
-                <span style="color: var(--accent-sage); font-weight: 600;">COMPLIMENTARY</span>
+                <span style="color: var(--accent-skyblue); font-weight: 600;">COMPLIMENTARY</span>
             </div>
             <div class="cart-summary-total">
                 <span>Total</span>
                 <span id="cartTotal">$0.00</span>
             </div>
-            <button class="btn btn-terracotta" style="width: 100%;" onclick="checkout()">Checkout Order <i class="fa-solid fa-arrow-right"></i></button>
+            <button class="btn btn-mustard" style="width: 100%;" onclick="checkout()">Checkout Order <i class="fa-solid fa-arrow-right"></i></button>
         </div>
     </div>
 
     <!-- Side Wishlist Drawer -->
     <div class="side-drawer" id="wishlistDrawer">
         <div class="drawer-header">
-            <h3><i class="fa-solid fa-heart" style="color: var(--accent-terracotta);"></i> Saved Objects</h3>
+            <h3><i class="fa-solid fa-heart" style="color: var(--accent-mustard);"></i> Saved Objects</h3>
             <button class="close-btn" onclick="closeAllDrawers()"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <div class="drawer-body" id="wishlistBody">
@@ -1073,15 +1097,15 @@
                 <div class="option-selector">
                     <div class="option-label">Finish / Shade</div>
                     <div class="color-chips">
-                        <span class="chip active">Natural Sand</span>
-                        <span class="chip">Terracotta Clay</span>
+                        <span class="chip active">Mustard Gold</span>
+                        <span class="chip">Sky Blue</span>
                         <span class="chip">Onyx Charcoal</span>
                     </div>
                 </div>
 
                 <div style="margin-top: auto; padding-top: 20px;">
                     <div style="font-size: 28px; font-weight: 700; color: var(--text-main); margin-bottom: 18px;" id="modalPrice">$0.00</div>
-                    <button class="btn btn-terracotta" style="width: 100%;" id="modalAddBtn">Add To Bag</button>
+                    <button class="btn btn-mustard" style="width: 100%;" id="modalAddBtn">Add To Bag</button>
                 </div>
             </div>
         </div>
@@ -1094,13 +1118,13 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="#" class="logo">AURA<span>.</span></a>
-                    <p>Dedicated to slow living, tactile organic materials, and architectural minimal decor for intentional homes.</p>
+                    <p>Dedicated to slow living, vibrant tactile materials, and modern minimal decor for contemporary spaces.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Collections</h4>
                     <ul>
-                        <li><a href="#">Kyoto Ceramics</a></li>
-                        <li><a href="#">Nordic Warm Lighting</a></li>
+                        <li><a href="#">Ochre Ceramics</a></li>
+                        <li><a href="#">Sky Glow Lighting</a></li>
                         <li><a href="#">Walnut Furniture</a></li>
                     </ul>
                 </div>
@@ -1123,7 +1147,7 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 AURA Studio. All rights reserved.</p>
-                <p>Designed with natural textures & organic minimalism.</p>
+                <p>Designed with vibrant mustard & sky blue architectural tones.</p>
             </div>
         </div>
     </footer>
@@ -1140,18 +1164,18 @@
                 reviews: 84,
                 image: 'https://images.unsplash.com/photo-1612196808214-b7e239e5f6b7?auto=format&fit=crop&w=800&q=80',
                 badge: 'Artisan Pick',
-                desc: 'Handcrafted stoneware clay vessel with a textured matte sand glaze finish. Perfect as a standalone centerpiece or dried floral holder.'
+                desc: 'Handcrafted stoneware clay vessel with a textured mustard matte glaze finish. Perfect as a standalone centerpiece or dried floral holder.'
             },
             {
                 id: 'p2',
-                title: 'Wabi Sabi Sculptural Pendant Light',
+                title: 'Sky Blue Sculptural Pendant Light',
                 category: 'lighting',
                 price: 290.00,
                 rating: 4.8,
                 reviews: 42,
                 image: 'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=800&q=80',
                 badge: 'Best Seller',
-                desc: 'Organic molded paper pulp shade producing warm ambient illumination for dining tables or modern living spaces.'
+                desc: 'Organic molded paper pulp shade with a subtle sky blue inner tint producing warm ambient illumination.'
             },
             {
                 id: 'p3',
@@ -1173,7 +1197,7 @@
                 reviews: 96,
                 image: 'https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=800&q=80',
                 badge: 'New Arrival',
-                desc: 'Unglazed terracotta planter designed with natural drainage grooves to keep indoor greenery thriving in style.'
+                desc: 'Unglazed ochre terracotta planter designed with natural drainage grooves to keep indoor greenery thriving in style.'
             },
             {
                 id: 'p5',
@@ -1369,7 +1393,7 @@
                     <div class="cart-item-details">
                         <div class="cart-item-title">${p.title}</div>
                         <div class="cart-item-price">$${p.price.toFixed(2)}</div>
-                        <button class="btn btn-terracotta" style="padding: 6px 14px; font-size: 11px; margin-top: 6px;" onclick="addToCart('${p.id}')">
+                        <button class="btn btn-skyblue" style="padding: 6px 14px; font-size: 11px; margin-top: 6px;" onclick="addToCart('${p.id}')">
                             Move To Bag
                         </button>
                     </div>
@@ -1451,7 +1475,7 @@
             const container = document.getElementById('toastContainer');
             const toast = document.createElement('div');
             toast.className = 'toast';
-            toast.innerHTML = `<i class="fa-solid fa-circle-check" style="color: var(--accent-terracotta);"></i> <span>${msg}</span>`;
+            toast.innerHTML = `<i class="fa-solid fa-circle-check" style="color: var(--accent-mustard);"></i> <span>${msg}</span>`;
             
             container.appendChild(toast);
             setTimeout(() => {
@@ -1508,3 +1532,4 @@
         };
     </script>
 </body>
+</html>
