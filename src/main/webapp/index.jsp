@@ -177,9 +177,6 @@
         .logo .logo-sa {
             color: var(--accent-skyblue);
         }
-        .logo .logo-dot {
-            color: var(--text-main);
-        }
 
         .nav-links {
             display: flex;
@@ -939,7 +936,7 @@
 
     <header>
         <div class="container nav-inner">
-            <a href="#" class="logo"><span class="logo-jo">JO</span><span class="logo-sa">SA</span><span class="logo-dot">.</span></a>
+            <a href="#" class="logo"><span class="logo-jo">JO</span><span class="logo-sa">SA</span></a>
             
             <ul class="nav-links">
                 <li><a href="#" class="active">Collection</a></li>
@@ -1123,7 +1120,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="#" class="logo"><span class="logo-jo">JO</span><span class="logo-sa">SA</span><span class="logo-dot">.</span></a>
+                    <a href="#" class="logo"><span class="logo-jo">JO</span><span class="logo-sa">SA</span></a>
                     <p>Dedicated to slow living, vibrant tactile materials, and modern minimal decor for contemporary spaces.</p>
                 </div>
                 <div class="footer-col">
